@@ -1,5 +1,6 @@
 #include <climits>
 #include <cmath>
+#include <iomanip>
 #include <iostream>
 #include <queue>
 #include <utility>
@@ -137,6 +138,9 @@ int main() {
                   << ", expected=" << h << ")\n";
         return 1;
     }
+
+    std::cout << std::fixed << std::setprecision(4);
+    std::cout << "Koszt: " << totalCost << "\n";
 
     // Output assignment: for each well, list the houses with flow == 1
     for (int i = 0; i < n; i++) {
