@@ -3,14 +3,18 @@
 #include <random>
 
 int main(int argc, char** argv) {
-    if (argc < 4 || argc > 5) {
-        std::cerr << "Uzycie: " << argv[0] << " <k> <n> <max_coord> [seed]\n";
+    constexpr int DEFAULT_K         = 2;
+    constexpr int DEFAULT_N         = 2;
+    constexpr int DEFAULT_MAX_COORD = 100;
+
+    if (argc > 5) {
+        std::cerr << "Uzycie: " << argv[0] << " [k] [n] [max_coord] [seed]\n";
         return 1;
     }
 
-    int k = std::stoi(argv[1]);
-    int n = std::stoi(argv[2]);
-    int maxCoord = std::stoi(argv[3]);
+    int k        = (argc >= 2) ? std::stoi(argv[1]) : DEFAULT_K;
+    int n        = (argc >= 3) ? std::stoi(argv[2]) : DEFAULT_N;
+    int maxCoord = (argc >= 4) ? std::stoi(argv[3]) : DEFAULT_MAX_COORD;
 
     if (k <= 0 || n <= 0 || maxCoord < 0) {
         std::cerr << "Blad: wymagane k > 0, n > 0, max_coord >= 0.\n";
@@ -35,6 +39,7 @@ int main(int argc, char** argv) {
         std::cout << coordDist(rng) << " " << coordDist(rng) << "\n";
     }
 
-    std::cerr << "seed=" << seed << "\n";
+    std::cerr << "params: k=" << k << " n=" << n << " max_coord=" << maxCoord
+              << " seed=" << seed << "\n";
     return 0;
 }
