@@ -2,6 +2,22 @@
 
 Finding the minimum cost assignment of houses to water sources using flow networks.
 
+## Windows quick start
+
+For quick check run: `run_example.bat`
+
+```powershell
+.\run_example
+```
+
+It will:
+
+- run the solver on `examples/example1.txt`,
+- generate a random input file,
+- run the solver on the generated input.
+
+You can also run the programs manually as explained below.
+
 ## Build
 
 Linux / macOS / Git Bash:
