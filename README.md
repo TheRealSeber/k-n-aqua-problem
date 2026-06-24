@@ -89,6 +89,8 @@ main.exe < examples\example1.txt
 
 Defaults: `k=2`, `n=2`, `max_coord=100`, `seed=current time`.
 
+When `seed` is omitted, each implementation uses its language runtime clock source, so unseeded random streams are not expected to match across languages.
+
 ### Reproducible example
 
 ```bash

@@ -1,6 +1,7 @@
 function main(varargin)
 INF = 1e18;
 EPSILON = 1e-9;
+MAX_FLOW = intmax('int32');
 
 if nargin >= 1
     data = sscanf(fileread(varargin{1}), '%f');
@@ -132,7 +133,7 @@ end
                 break;
             end
 
-            addFlow = intmax('int32');
+            addFlow = MAX_FLOW;
             v = sink;
             while v ~= source
                 u = prevV(v);

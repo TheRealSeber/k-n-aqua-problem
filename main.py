@@ -5,6 +5,7 @@ from collections import deque
 
 INF = 1e18
 EPSILON = 1e-9
+MAX_FLOW = 2**31 - 1
 
 
 class Edge:
@@ -62,7 +63,7 @@ def min_cost_max_flow(s: int, t: int, vertex_count: int) -> tuple[int, float]:
     total_cost = 0.0
 
     while spfa(s, t, vertex_count):
-        add_flow = 2**31 - 1
+        add_flow = MAX_FLOW
         v = t
         while v != s:
             u = prev_v[v]
